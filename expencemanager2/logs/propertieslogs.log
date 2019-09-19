@@ -1,0 +1,39 @@
+[INFO ] 2019-09-19 16:05:18.514 [restartedMain] ExpencemanagerApplication - Starting ExpencemanagerApplication on MayureshP-PC-177 with PID 232 (started by Mayuresh Patkar in C:\Users\Mayuresh Patkar\EclipseProj\expencemanager2.zip_expanded\expencemanager2)
+[DEBUG] 2019-09-19 16:05:18.515 [restartedMain] ExpencemanagerApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-09-19 16:05:18.515 [restartedMain] ExpencemanagerApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-09-19 16:05:19.362 [restartedMain] ExpencemanagerApplication - Started ExpencemanagerApplication in 0.884 seconds (JVM running for 80.58)
+[INFO ] 2019-09-19 16:05:23.862 [http-nio-8080-exec-1] UserController - User name: a3
+[DEBUG] 2019-09-19 16:05:23.862 [http-nio-8080-exec-1] UserController - Password: asd
+[INFO ] 2019-09-19 16:05:23.880 [http-nio-8080-exec-1] UserDAOImplement - Password validation in Login
+[INFO ] 2019-09-19 16:05:47.394 [restartedMain] ExpencemanagerApplication - Starting ExpencemanagerApplication on MayureshP-PC-177 with PID 232 (started by Mayuresh Patkar in C:\Users\Mayuresh Patkar\EclipseProj\expencemanager2.zip_expanded\expencemanager2)
+[DEBUG] 2019-09-19 16:05:47.395 [restartedMain] ExpencemanagerApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-09-19 16:05:47.395 [restartedMain] ExpencemanagerApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-09-19 16:05:48.115 [restartedMain] ExpencemanagerApplication - Started ExpencemanagerApplication in 0.749 seconds (JVM running for 109.333)
+[INFO ] 2019-09-19 16:05:55.811 [http-nio-8080-exec-9] UserController - User name: a3
+[DEBUG] 2019-09-19 16:05:55.811 [http-nio-8080-exec-9] UserController - Password: asd
+[INFO ] 2019-09-19 16:05:55.826 [http-nio-8080-exec-9] UserDAOImplement - Password validation in Login
+[INFO ] 2019-09-19 16:07:18.990 [restartedMain] ExpencemanagerApplication - Starting ExpencemanagerApplication on MayureshP-PC-177 with PID 232 (started by Mayuresh Patkar in C:\Users\Mayuresh Patkar\EclipseProj\expencemanager2.zip_expanded\expencemanager2)
+[DEBUG] 2019-09-19 16:07:18.991 [restartedMain] ExpencemanagerApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-09-19 16:07:18.991 [restartedMain] ExpencemanagerApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-09-19 16:07:19.669 [restartedMain] ExpencemanagerApplication - Started ExpencemanagerApplication in 0.706 seconds (JVM running for 200.888)
+[INFO ] 2019-09-19 16:07:23.192 [http-nio-8080-exec-10] UserController - User name: a3
+[DEBUG] 2019-09-19 16:07:23.192 [http-nio-8080-exec-10] UserController - Password: asd
+[INFO ] 2019-09-19 16:07:23.211 [http-nio-8080-exec-10] UserDAOImplement - Password validation in Login
+[INFO ] 2019-09-19 16:07:52.738 [restartedMain] ExpencemanagerApplication - Starting ExpencemanagerApplication on MayureshP-PC-177 with PID 232 (started by Mayuresh Patkar in C:\Users\Mayuresh Patkar\EclipseProj\expencemanager2.zip_expanded\expencemanager2)
+[DEBUG] 2019-09-19 16:07:52.738 [restartedMain] ExpencemanagerApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-09-19 16:07:52.738 [restartedMain] ExpencemanagerApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-09-19 16:07:53.366 [restartedMain] ExpencemanagerApplication - Started ExpencemanagerApplication in 0.653 seconds (JVM running for 234.584)
+[INFO ] 2019-09-19 16:07:56.246 [http-nio-8080-exec-10] UserController - User name: a3
+[DEBUG] 2019-09-19 16:07:56.246 [http-nio-8080-exec-10] UserController - Password: asd
+[INFO ] 2019-09-19 16:07:56.264 [http-nio-8080-exec-10] UserDAOImplement - Password validation in Login
+[INFO ] 2019-09-19 16:08:58.845 [restartedMain] ExpencemanagerApplication - Starting ExpencemanagerApplication on MayureshP-PC-177 with PID 232 (started by Mayuresh Patkar in C:\Users\Mayuresh Patkar\EclipseProj\expencemanager2.zip_expanded\expencemanager2)
+[DEBUG] 2019-09-19 16:08:58.845 [restartedMain] ExpencemanagerApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-09-19 16:08:58.845 [restartedMain] ExpencemanagerApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-09-19 16:08:59.488 [restartedMain] ExpencemanagerApplication - Started ExpencemanagerApplication in 0.67 seconds (JVM running for 300.707)
+[INFO ] 2019-09-19 16:09:02.485 [http-nio-8080-exec-1] UserController - User name: a3
+[DEBUG] 2019-09-19 16:09:02.485 [http-nio-8080-exec-1] UserController - Password: asd
+[INFO ] 2019-09-19 16:09:02.501 [http-nio-8080-exec-1] UserDAOImplement - Password validation in Login
+[INFO ] 2019-09-19 16:52:01.572 [restartedMain] ExpencemanagerApplication - Starting ExpencemanagerApplication on MayureshP-PC-177 with PID 4676 (started by Mayuresh Patkar in C:\Users\Mayuresh Patkar\EclipseProj\expencemanager2.zip_expanded\expencemanager2)
+[DEBUG] 2019-09-19 16:52:01.572 [restartedMain] ExpencemanagerApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-09-19 16:52:01.573 [restartedMain] ExpencemanagerApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-09-19 16:52:05.913 [restartedMain] ExpencemanagerApplication - Started ExpencemanagerApplication in 4.597 seconds (JVM running for 5.297)
