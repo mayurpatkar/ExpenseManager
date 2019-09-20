@@ -66,8 +66,8 @@ public class ExpenseController {
      * @return Summary Info
      */
     @GetMapping("/mail/{id}")
-    public SummaryDto mail(@PathVariable(value = "id") int id) {
-        return expenseService.mail(id);
+    public SummaryDto usingMultithread(@PathVariable(value = "id") int id) {
+        return expenseService.usingMultithread(id);
     }
 
     /**

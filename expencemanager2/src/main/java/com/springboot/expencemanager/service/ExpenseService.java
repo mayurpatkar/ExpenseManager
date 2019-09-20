@@ -12,11 +12,9 @@ public interface ExpenseService {
 
     public SummaryDto dashboard(int id);
 
-//    public List<Object> viewAllExpenses(int id);
-
     public void deleteExpense(int id);
 
-    public SummaryDto mail(int id);
+    public SummaryDto usingMultithread(int id);
 
     public List<ExpenseDTO> showAllExpense(int id);
 

@@ -2,6 +2,9 @@ package com.springboot.expencemanager.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +22,7 @@ public class ExpenseServiceImplement implements ExpenseService {
     private Logger logger = LoggerFactory.getLogger(ExpenseServiceImplement.class);
     @Autowired
     private ExpenseDAO expenseDAO;
-
+    private SummaryDto summaryDto;
     /**
      * Call addExpense method for adding new expenses
      */
@@ -50,12 +53,24 @@ public class ExpenseServiceImplement implements ExpenseService {
     /**
      * Sending mail info to executor service
      */
-    public SummaryDto mail(int id) {
-        SummaryDto list = expenseDAO.showExpense(id);
-        if (list == null) {
-            throw new RecordNotFoundException("Invalid Id : " + id);
-        }
-        return list;
+    public SummaryDto usingMultithread(int id) {
+        ExecutorService executorService=  Executors.newFixedThreadPool(2);
+        Runnable task1=new Runnable() {
+            
+            @Override
+            public void run() {
+                System.out.println("Thread name"+Thread.currentThread().getName());
+                try {
+                    summaryDto=expenseDAO.showExpense(id);
+                }
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
+                
+            }
+        };
+        executorService.submit(task1);
+        return  summaryDto;
     }
 
     /**
