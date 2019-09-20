@@ -9,7 +9,7 @@ public interface UserDAO {
 
     public void addUser(UserDTO userDTO);
 
-    public List<String> loginUser(UserDTO userDTO);
+    public List<String> loginUser(UserDTO userDTO) throws InterruptedException;
 
     public User findUser(int userId);
 

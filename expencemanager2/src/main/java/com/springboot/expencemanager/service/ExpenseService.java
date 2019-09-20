@@ -2,8 +2,6 @@ package com.springboot.expencemanager.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.springboot.expencemanager.Entity.Expense;
 import com.springboot.expencemanager.dto.ExpenseDTO;
 import com.springboot.expencemanager.dto.SummaryDto;
@@ -14,7 +12,15 @@ public interface ExpenseService {
 
     public SummaryDto dashboard(int id);
 
-    public List<Object> viewAllExpenses(int id);
+//    public List<Object> viewAllExpenses(int id);
 
     public void deleteExpense(int id);
+
+    public SummaryDto mail(int id);
+
+    public List<ExpenseDTO> showAllExpense(int id);
+
+    public List<ExpenseDTO> translateToDtos(List<Expense> entity);
+    
+
 }

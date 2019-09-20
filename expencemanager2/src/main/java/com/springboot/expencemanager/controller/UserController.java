@@ -20,26 +20,34 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    /* User registration API 
+    /**
+     * User registration API 
      * Input:Username,
      *       password,
      *       confirmPassword
      * Output:Register successfully
-     * */
+     * @param userDTO
+     * @return User Details 
+     */
     @PostMapping("/register")
     public String addUser(@RequestBody UserDTO userDTO) {
         return userService.addUser(userDTO);
 
     }
 
-    /* Login API 
+
+    /**
+     * Login API 
      * Input:Username,
      *       password
      * Output:
      *  Login Successfully
-     * */
+     * @param userDTO
+     * @return userDTO(Username and Password)
+     * @throws InterruptedException 
+     */
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<String> loginUser(@RequestBody UserDTO userDTO) throws InterruptedException {
         logger.info("User name: {}", userDTO.getUsername());
         logger.debug("Password: {}", userDTO.getPassword());
         return userService.loginUser(userDTO);

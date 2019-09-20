@@ -7,6 +7,6 @@ public interface UserService {
 
     public String addUser(UserDTO userDTO);
 
-    public ResponseEntity<String> loginUser(UserDTO userDTO);
+    public ResponseEntity<String> loginUser(UserDTO userDTO) throws InterruptedException;
 
 }

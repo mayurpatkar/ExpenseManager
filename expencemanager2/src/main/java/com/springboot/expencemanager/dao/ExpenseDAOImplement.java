@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import com.springboot.expencemanager.Entity.Expense;
 import com.springboot.expencemanager.Entity.User;
@@ -15,6 +14,7 @@ import com.springboot.expencemanager.conversion.Translator;
 import com.springboot.expencemanager.dto.ExpenseDTO;
 import com.springboot.expencemanager.dto.ExpenseUIDto;
 import com.springboot.expencemanager.dto.SummaryDto;
+import com.springboot.expencemanager.exceptions.RecordNotFoundException;
 
 @Repository
 @Transactional
@@ -27,8 +27,9 @@ public class ExpenseDAOImplement implements ExpenseDAO, Translator<Expense, Expe
     @Autowired
     private UserDAO userDAO;
 
-    /* Add new Expenses DAO Implemenatation
-     * */
+    /**
+     * Add new Expenses DAO Implemenatation
+     */
     @Override
     public void addExpense(ExpenseDTO expenseDTO) {
         Expense expense = new Expense();
@@ -36,7 +37,7 @@ public class ExpenseDAOImplement implements ExpenseDAO, Translator<Expense, Expe
         entityManager.persist(expense);
     }
 
-    /* Conversion Method DTO to Entity */
+    /** Conversion Method DTO to Entity */
     @Override
     public Expense translateToEntity(Expense entity, ExpenseDTO dto) {
         entity.setUsers(userDAO.findUser(dto.getUser_id()));
@@ -48,8 +49,7 @@ public class ExpenseDAOImplement implements ExpenseDAO, Translator<Expense, Expe
         return entity;
     }
 
-
-     /* Conversion Method Entity to DTO */
+    /** Conversion Method Entity to DTO */
     @Override
     public ExpenseDTO translateToDTO(Expense entity, ExpenseDTO dto) {
         dto.setTitle(entity.getTitle());
@@ -60,39 +60,52 @@ public class ExpenseDAOImplement implements ExpenseDAO, Translator<Expense, Expe
         return dto;
     }
 
-    /* Dashboard UI (Display all Expenses,month and year for each particular user) */
+    /**
+     * Dashboard UI (Display all Expenses,month and year for each particular user)
+     */
     public SummaryDto showExpense(int id) {
         User user = userDAO.findUser(id);
-        logger.debug("User Id for showing expenses {}",id);
+        logger.debug("User Id for showing expenses {}", id);
         Query query = (Query) entityManager.createQuery("select DATE_FORMAT(Date,'%b %Y') as "
                 + "MonthAndYear,sum(amount) as Sum from Expense where users.user_id = " + id
                 + " group by month(Date), year(Date)");
         List<ExpenseUIDto> expenseList = query.list();
-        Query query1 = (Query) entityManager.createQuery("select sum(amount) from Expense "
-                + "where users.user_id = "+ id);
-        SummaryDto summary = new SummaryDto();
-        summary.setExpenses(expenseList);
-        summary.setSum((Long)query1.getResultList().get(0));
-        return summary;
-
+        Query query1 = (Query) entityManager
+                .createQuery("select sum(amount) from Expense " + "where users.user_id = " + id);
+        if (query1.getResultList().get(0) != null) {
+            SummaryDto summary = new SummaryDto();
+            summary.setExpenses(expenseList);
+            summary.setSum((Long) query1.getResultList().get(0));
+            return summary;
+        }
+        return null;
     }
 
-    /* Display all expenses after clicking on viewAllButton*/
-    public List<Object> showAllExpense(int id) {
-        User user = userDAO.findUser(id);
-        Query query = (Query) entityManager.createQuery(
-                "select title,category,description,Date," 
-              + "amount from Expense where users.user_id = " + id);
-        List<Object> expenseList = query.list();
-        query.setFirstResult(0);
-        query.setMaxResults(10);
-        logger.debug("List of all expenses with all attributes");
-        return expenseList;
-    }
-
-    /* Delete Method */
+    /**
+     * Delete Method
+     */
     public void delete(int id) {
-        Expense exp= entityManager.find(Expense.class,id);
+        Expense exp = entityManager.find(Expense.class, id);
+        if (exp == null) {
+            throw new RecordNotFoundException("Invalid Id : " + id);
+        }
         entityManager.remove(exp);
     }
+
+    /** Display all expenses after clicking on viewAllButton */
+    @Override
+    public List<Expense> showAllExpense(int id) {
+        Query query = (Query) entityManager.createQuery("select title,Date,amount,description,"
+                + "category,expense_id from Expense where users.user_id = " + id);
+        List<Expense> expenseList = query.list();
+        if(expenseList != null)
+        {
+            query.setFirstResult(0);
+            query.setMaxResults(10);
+            logger.debug("List of all expenses with all attributes");
+            return expenseList;
+        }
+        return null;
+    }
+
 }

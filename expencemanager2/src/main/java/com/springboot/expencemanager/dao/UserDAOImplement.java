@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.expencemanager.Entity.Expense;
@@ -34,13 +35,15 @@ public class UserDAOImplement implements UserDAO, Translator<User, UserDTO> {
 
     /* Method for login */
     @Override
-    public List<String> loginUser(UserDTO userDTO) {
+    @Async
+    public List<String> loginUser(UserDTO userDTO) throws InterruptedException {
         User user = new User();
         translateToEntity(user, userDTO);
         Query theQuery = (Query) entityManager.createQuery("select password from User "
                 + "where username = '" + user.getUsername() + "'");
         List<String> pwd = theQuery.list();
         logger.info("Password validation in Login");
+        Thread.sleep(1000);
         return pwd;
 
     }

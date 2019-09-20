@@ -37,7 +37,7 @@ public class UserServiceImplement implements UserService {
 
     /* Login method */
     @Override
-    public ResponseEntity<String> loginUser(UserDTO userDTO) {
+    public ResponseEntity<String> loginUser(UserDTO userDTO) throws InterruptedException {
 
         List<String> pwd = userDAO.loginUser(userDTO);
 
